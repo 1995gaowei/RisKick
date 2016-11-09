@@ -6,7 +6,7 @@ import { User } from '../vo/user';
 
 @Injectable()
 export class UserService {
-    private currentUser = new User('wei', '123');
+    private currentUser = new User('wei', '123', '', '');
 
     constructor(private http: Http) { }
 

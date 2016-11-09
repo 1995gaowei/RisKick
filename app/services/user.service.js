@@ -15,7 +15,7 @@ var user_1 = require('../vo/user');
 var UserService = (function () {
     function UserService(http) {
         this.http = http;
-        this.currentUser = new user_1.User('wei', '123');
+        this.currentUser = new user_1.User('wei', '123', '', '');
     }
     UserService.prototype.signIn = function (user) {
         var url = 'app/signIn';
