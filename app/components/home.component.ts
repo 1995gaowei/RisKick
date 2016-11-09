@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params }   from '@angular/router';
+import { Location }                 from '@angular/common';
 
 import { UserService }        from '../services/user.service'
-import { SoftwareService }    from '../services/software.service'
 
 import { User }              from '../vo/user';
 
@@ -13,15 +14,16 @@ import { User }              from '../vo/user';
 })
 
 export class HomeComponent implements OnInit {
-    private user: User;
-
     constructor(
         private userService: UserService,
-        private softwareService: SoftwareService
+        private route: ActivatedRoute,
+        private location: Location
         ) { }
 
     ngOnInit(): void {
-        this.user = new User('', '');
+        this.route.params.forEach((params: Params) => {
+            console.log(params);
+        });
     }
 
 }

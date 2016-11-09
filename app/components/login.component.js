@@ -16,7 +16,7 @@ var LoginComponent = (function () {
         this.userService = userService;
     }
     LoginComponent.prototype.ngOnInit = function () {
-        this.user = new user_1.User('', '');
+        this.user = new user_1.User('', '', '', '');
     };
     LoginComponent.prototype.onSignIn = function () {
         console.log('sign in');

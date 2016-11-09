@@ -1,30 +1,32 @@
-<h3 style="text-align:center;">RisKick</h3>
-<form (ngSubmit)="onSignIn()" #heroForm="ngForm">
-  <div class="form-group">
-    <label for="name">User Name</label>
-    <input type="text" class="form-control" id="name" required
-          [(ngModel)]="user.userName" name="name"
-          #name="ngModel">
-    <div [hidden]="name.valid || name.pristine" 
-          class="alert alert-danger">
-      User name is required
+<div style="max-width:340px;margin-left:auto;margin-right:auto;padding-top:40px;">
+  <h3 style="text-align:center;">RisKick</h3>
+  <form (ngSubmit)="onSignIn()" #signInForm="ngForm">
+    <div class="form-group">
+      <label for="name">User Name</label>
+      <input type="text" class="form-control" id="name" required
+            [(ngModel)]="user.userName" name="name"
+            #name="ngModel">
+      <div [hidden]="name.valid || name.pristine" 
+            class="alert alert-danger">
+        User name is required
+      </div>
     </div>
-  </div>
 
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" class="form-control" id="password" required
-          [(ngModel)]="user.password" name="password"
-          #password="ngModel">
-    <div [hidden]="password.valid || password.pristine" 
-          class="alert alert-danger">
-      Password is required
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" required
+            [(ngModel)]="user.password" name="password"
+            #password="ngModel">
+      <div [hidden]="password.valid || password.pristine" 
+            class="alert alert-danger">
+        Password is required
+      </div>
     </div>
-  </div>
 
-  <button type="submit" class="btn btn-primary" [disabled]="!heroForm.form.valid" style="width:100%;">Sign in</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!signInForm.form.valid" style="width:100%;">Sign in</button>
 
-  <div style="text-align:center;margin-top:15px;">
-    New to RisKick? <a href="signUp"> Create an account.</a>
-  </div>
-</form>
+    <div style="text-align:center;margin-top:15px;">
+      New to RisKick? <a href="signUp"> Create an account.</a>
+    </div>
+  </form>
+</div>

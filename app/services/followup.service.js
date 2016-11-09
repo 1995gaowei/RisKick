@@ -9,26 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-require('../rxjs-operators');
-var user_service_1 = require('../services/user.service');
-var user_1 = require('../vo/user');
-var AppComponent = (function () {
-    function AppComponent(userService) {
-        this.userService = userService;
+var http_1 = require('@angular/http');
+var FollowupService = (function () {
+    function FollowupService(http) {
+        this.http = http;
     }
-    AppComponent.prototype.ngOnInit = function () {
-        this.user = new user_1.User('wei', '', '', '');
-    };
-    AppComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'my-app',
-            templateUrl: '../templates/app.component.html',
-            styleUrls: ['../styles/app.component.css']
-        }), 
-        __metadata('design:paramtypes', [user_service_1.UserService])
-    ], AppComponent);
-    return AppComponent;
+    FollowupService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [http_1.Http])
+    ], FollowupService);
+    return FollowupService;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.FollowupService = FollowupService;
+//# sourceMappingURL=followup.service.js.map

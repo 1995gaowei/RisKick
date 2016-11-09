@@ -9,16 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
+var common_1 = require('@angular/common');
 var user_service_1 = require('../services/user.service');
-var software_service_1 = require('../services/software.service');
-var user_1 = require('../vo/user');
 var HomeComponent = (function () {
-    function HomeComponent(userService, softwareService) {
+    function HomeComponent(userService, route, location) {
         this.userService = userService;
-        this.softwareService = softwareService;
+        this.route = route;
+        this.location = location;
     }
     HomeComponent.prototype.ngOnInit = function () {
-        this.user = new user_1.User('', '');
+        this.route.params.forEach(function (params) {
+            console.log(params);
+        });
     };
     HomeComponent = __decorate([
         core_1.Component({
@@ -27,7 +30,7 @@ var HomeComponent = (function () {
             templateUrl: '../templates/home.component.html',
             styleUrls: ['../styles/home.component.css']
         }), 
-        __metadata('design:paramtypes', [user_service_1.UserService, software_service_1.SoftwareService])
+        __metadata('design:paramtypes', [user_service_1.UserService, router_1.ActivatedRoute, common_1.Location])
     ], HomeComponent);
     return HomeComponent;
 }());

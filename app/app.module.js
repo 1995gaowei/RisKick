@@ -15,9 +15,16 @@ var http_1 = require('@angular/http');
 // import { InMemoryWebApiModule }     from 'angular-in-memory-web-api';
 // import { SignIn }                 from './sign-in';
 var user_service_1 = require('./services/user.service');
+var project_service_1 = require('./services/project.service');
+var risk_service_1 = require('./services/risk.service');
+var followup_service_1 = require('./services/followup.service');
 var app_component_1 = require('./components/app.component');
 var login_component_1 = require('./components/login.component');
 var register_component_1 = require('./components/register.component');
+var home_component_1 = require('./components/home.component');
+var project_table_component_1 = require('./components/project-table.component');
+var risk_table_component_1 = require('./components/risk-table.component');
+var followup_table_component_1 = require('./components/followup-table.component');
 var app_routing_module_1 = require('./app-routing.module');
 var AppModule = (function () {
     function AppModule() {
@@ -34,10 +41,14 @@ var AppModule = (function () {
             declarations: [
                 app_component_1.AppComponent,
                 login_component_1.LoginComponent,
-                register_component_1.RegisterComponent
+                register_component_1.RegisterComponent,
+                home_component_1.HomeComponent,
+                project_table_component_1.ProjectTableComponent,
+                risk_table_component_1.RiskTableComponent,
+                followup_table_component_1.FollowupTableComponent
             ],
             bootstrap: [app_component_1.AppComponent],
-            providers: [user_service_1.UserService]
+            providers: [user_service_1.UserService, project_service_1.ProjectService, risk_service_1.RiskService, followup_service_1.FollowupService]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);

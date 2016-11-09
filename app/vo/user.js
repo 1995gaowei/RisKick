@@ -1,10 +1,10 @@
 "use strict";
 var User = (function () {
-    function User(userName, password, corp, role) {
+    function User(userName, password, company, position) {
         this.userName = userName;
         this.password = password;
-        this.corp = corp;
-        this.role = role;
+        this.company = company;
+        this.position = position;
     }
     return User;
 }());

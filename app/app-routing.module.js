@@ -12,10 +12,16 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var login_component_1 = require('./components/login.component');
 var register_component_1 = require('./components/register.component');
+var project_table_component_1 = require('./components/project-table.component');
+var risk_table_component_1 = require('./components/risk-table.component');
+var followup_table_component_1 = require('./components/followup-table.component');
 var routes = [
     { path: '', redirectTo: '/signIn', pathMatch: 'full' },
     { path: 'signIn', component: login_component_1.LoginComponent },
-    { path: 'signUp', component: register_component_1.RegisterComponent }
+    { path: 'signUp', component: register_component_1.RegisterComponent },
+    { path: ':userName', component: project_table_component_1.ProjectTableComponent },
+    { path: ':userName/:projectName', component: risk_table_component_1.RiskTableComponent },
+    { path: ':userName/:projectName/:riskId', component: followup_table_component_1.FollowupTableComponent },
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {

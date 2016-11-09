@@ -1,0 +1,100 @@
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+<h3>Risks</h3>
+<div class="table-responsive" *ngIf="risks.length > 0">
+    <table class="table table-striped">
+        <thead><tr>
+            <th>#</th><th>Description</th><th>Type</th><th>Possibility</th><th>Impact</th><th>Threshold</th>
+            <th>Creator</th><th>Follower</th><th></th>
+        </tr></thead>
+        <tbody>
+        <tr *ngFor="let risk of risks; let i = index">
+            <th>{{i+1}}</th>
+            <td>{{risk.description}}</td>
+            <td>{{risk.riskType}}</td>
+            <td>{{risk.possibility}}</td>
+            <td>{{risk.impact}}</td>
+            <td>{{risk.threshold}}</td>
+            <td>{{risk.creatorName}}</td>
+            <td>{{risk.followerName}}</td>
+            <td><a href="#">followups</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div *ngIf="risks.length == 0">
+    No risk.
+</div>
+
+<div>
+    <button class="btn btn-primary btn-lg" (click)="onClickAdd()" style="margin-top:20px;" [ngSwitch]="addButtonClicked">
+        <span *ngSwitchCase="false">Add a risk</span>
+        <span *ngSwitchCase="true">Cancel</span>
+    </button>
+
+    <div class="panel panel-default" style="margin-top:20px;" [class.hidden]="!addButtonClicked">
+        <div class="panel-body">
+            <form class="form-horizontal" (ngSubmit)="onAddRisk()">
+                <div class="form-group">
+                    <label for="description" class="col-sm-2 control-label">Description</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="description" required
+                                [(ngModel)]="newRisk.description" name="description"
+                                #description="ngModel">
+                        <div [hidden]="description.valid || description.pristine" 
+                                class="alert alert-danger">
+                            Description is required
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="type" class="col-sm-2 control-label">Type</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" id="type" required
+                                [(ngModel)]="newRisk.riskType" name="type">
+                            <option *ngFor="let t of riskType" [value]="t">{{t}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="possibility" class="col-sm-2 control-label">Possibility</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" id="possibility" required
+                                [(ngModel)]="newRisk.possibility" name="possibility">
+                            <option *ngFor="let p of riskPossibility" [value]="p">{{p}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="impact" class="col-sm-2 control-label">Impact</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" id="impact" required
+                                [(ngModel)]="newRisk.impact" name="impact">
+                            <option *ngFor="let i of riskImpact" [value]="i">{{i}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="threshold" class="col-sm-2 control-label">Threshold</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="threshold"
+                                [(ngModel)]="newRisk.threshold" name="threshold">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="followerName" class="col-sm-2 control-label">Follower</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="followerName"
+                                [(ngModel)]="newRisk.followerName" name="followerName">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary"> Add </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
