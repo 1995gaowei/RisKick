@@ -5,5 +5,5 @@ WORKDIR /home/service
 
 COPY . /home/service
 
-EXPOSE 22222
+EXPOSE 3000
 CMD ["npm", "start"]
